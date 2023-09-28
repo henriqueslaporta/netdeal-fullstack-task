@@ -6,14 +6,14 @@ import java.util.List;
 
 public interface PersonService {
 
-    public abstract List<Person> getAllPersons();
+    List<Person> getAllPersons();
 
-    public Person getPersonById(Long id);
+    Person getPersonById(Long id);
 
-    public Person createPerson(Person person);
+    Person createPerson(Person person);
 
-    public Person updatePerson(Long id, Person person);
+    Person updatePerson(Long id, Person person);
 
-    public void deletePerson(Long id);
+    void deletePerson(Long id);
 
 }
