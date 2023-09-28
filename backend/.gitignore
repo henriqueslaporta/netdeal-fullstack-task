@@ -1,6 +1,7 @@
 /.idea
 /target/
-/fullstak-task.iml
 /mvnw
 /mvnw.cmd
 /HELP.md
+/fullstack-task.iml
+/data/
