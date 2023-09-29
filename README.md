@@ -34,13 +34,14 @@ Avaliaremos o seu nível de senioridade de acordo com a quantidade de implementa
 
 # Dicas para executar o codigo
 ## Banco de dados MySQL
-Na pasta `/backend` existe um aqui chamado `docker-compose.yml`
+Na pasta `/backend` existe um arquivo chamado `docker-compose.yml`
 ```
 docker compose up -d
 ```
 
 ## Backend
-- Versão do Java utilizada `OpenJdk 21`
+- Versão do Java utilizada `OpenJdk 21`.
+  
 Na pasta de `/backend` executar o comando do Maven para realizar o `clean` e depois o `install` após isso pode executar a aplicação como preferir pela ide ou linha de comando.
 
 ## Frontend
