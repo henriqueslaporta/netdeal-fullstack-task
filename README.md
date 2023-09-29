@@ -1,3 +1,4 @@
+# Netdeal Fullstack Task
 ## O que o cliente espera da entrega:
 
 - Um CRUD para cadastrar a hierarquia de colaboradores dentro de uma empresa e suas respectivas senhas;
@@ -30,3 +31,21 @@
 - Experiência do usuário (área de clique, scroll jump, design, etc);
 
 Avaliaremos o seu nível de senioridade de acordo com a quantidade de implementações dos requisitos listados.
+
+# Dicas para executar o codigo
+## Banco de dados MySQL
+Na pasta `/backend` existe um aqui chamado `docker-compose.yml`
+```
+docker compose up -d
+```
+
+## Backend
+- Versão do Java utilizada `OpenJdk 21`
+Na pasta de `/backend` executar o comando do Maven para realizar o `clean` e depois o `install` após isso pode executar a aplicação como preferir pela ide ou linha de comando.
+
+## Frontend
+Acessar a pasta `/frontend` se possuir o node instalado pode utilizar o `package.json` para auxiliar na execução usando os comandos:
+```
+npm install -g http-server
+npm run start
+```
