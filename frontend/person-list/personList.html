@@ -1,0 +1,7 @@
+<h1>Netdeal</h1>
+<person-form update-list="$ctrl.updateList()"></person-form>
+<p>Lider selecionado: {{$ctrl.getPersonSelected().name || "Nenhum lider selecionado"}}</p>
+<person-detail 
+    ng-repeat="person in $ctrl.list" 
+    person="person"
+></person-detail>
