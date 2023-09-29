@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static java.util.Objects.isNull;
+
 @Slf4j
 @RestController
 @RequestMapping("/persons")
@@ -41,6 +43,9 @@ public class PersonController {
         log.info("[PersonController.getPersonById] - Initializing id: {}", id);
         PersonResponse response = personResponseMapper.personToPersonResponse(personService.getPersonById(id));
         log.info("[PersonController.getPersonById] - Ending id: {}", id);
+        if (isNull(response)) {
+            return ResponseEntity.notFound().build();
+        }
         return ResponseEntity.ok(response);
     }
 

@@ -16,6 +16,6 @@ public class PersonResponse implements Serializable {
 
     private Long id;
     private String name;
-    private String score;
+    private Integer score;
     private List<PersonResponse> subPersons;
 }

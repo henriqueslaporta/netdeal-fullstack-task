@@ -6,5 +6,5 @@ CREATE TABLE person (
     password VARCHAR(255) NOT NULL,
     score INT NOT NULL,
     parent_id BIGINT,
-    CONSTRAINT fk_person_parent FOREIGN KEY (parent_id) REFERENCES person(id)
+    CONSTRAINT fk_person_parent FOREIGN KEY (parent_id) REFERENCES person(id) ON DELETE CASCADE
 );
