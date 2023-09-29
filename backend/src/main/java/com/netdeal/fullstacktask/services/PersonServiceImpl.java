@@ -3,6 +3,7 @@ package com.netdeal.fullstacktask.services;
 import com.netdeal.fullstacktask.entities.Person;
 import com.netdeal.fullstacktask.repositories.PersonRepository;
 import com.netdeal.fullstacktask.utils.PasswordEncryption;
+import com.netdeal.fullstacktask.utils.PasswordHandler;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -33,8 +34,8 @@ public class PersonServiceImpl implements PersonService{
 
     public Person createPerson(Person person) {
         log.info("[PersonService.createPerson] - Initializing name: {}", person.getName());
+        person.setScore(calculatePasswordScore(person.getPassword()));
         person.setPassword(PasswordEncryption.encode(person.getPassword()));
-        person.setScore(0);
         Person saved = personRepository.save(person);
         log.info("[PersonService.createPerson] - Ending name: {}", person.getName());
         return saved;
@@ -43,6 +44,7 @@ public class PersonServiceImpl implements PersonService{
     public Person updatePerson(Long id, Person newPerson) {
         log.info("[PersonService.updatePerson] - Initializing id: {}", id);
         Person databasePerson = getPersonById(id);
+        databasePerson.setScore(calculatePasswordScore(newPerson.getPassword()));
         databasePerson.setPassword(PasswordEncryption.encode(newPerson.getPassword()));
         databasePerson.setParentPerson(newPerson.getParentPerson());
         Person result = personRepository.save(newPerson);
@@ -55,6 +57,11 @@ public class PersonServiceImpl implements PersonService{
         Person databasePerson = getPersonById(id);
         personRepository.delete(databasePerson);
         log.info("[PersonService.deletePerson] - Ending id: {}", id);
+    }
+
+    private int calculatePasswordScore(String password) {
+        PasswordHandler passwordHandler = new PasswordHandler();
+        return passwordHandler.getScore(password);
     }
 
 }
